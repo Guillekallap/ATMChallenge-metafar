@@ -1,0 +1,38 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+.nuget/
+
+# User secrets
+secrets.json
+
+# EF migrations
+**/Migrations/**/Resharper*
+
+# Logs
+logs/
+
+# Docker
+docker-compose.override.yml
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# VS Code
+.vscode/

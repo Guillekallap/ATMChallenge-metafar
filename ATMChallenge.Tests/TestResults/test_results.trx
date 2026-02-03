@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="776e84a2-23e8-4902-ac1f-9dc6bf247f86" name="Guille@GUILLEPC 2026-02-02 21:02:05" runUser="GUILLEPC\Guille" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-02-02T21:02:05.2384518-03:00" queuing="2026-02-02T21:02:05.2384518-03:00" start="2026-02-02T21:02:02.6533822-03:00" finish="2026-02-02T21:02:05.7916754-03:00" />
+  <TestSettings name="default" id="914231fd-cae5-48f5-9d8d-929a1ae174d2">
+    <Deployment runDeploymentRoot="Guille_GUILLEPC_2026-02-02_21_02_05" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="3420d9d3-87b6-4ba4-a70c-cbf36bbfbd47" testId="d12bbbf4-f082-23ff-e3df-61b6bc875131" testName="ATMChallenge.Tests.LoginHandlerTests.Login_WithValidPin_ResetsFailedAttemptsAndReturnsToken" computerName="GUILLEPC" duration="00:00:01.1003876" startTime="2026-02-02T21:02:05.0803615-03:00" endTime="2026-02-02T21:02:05.0803617-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3420d9d3-87b6-4ba4-a70c-cbf36bbfbd47" />
+    <UnitTestResult executionId="dac79710-8dac-4cda-9673-abfa28ebfc2d" testId="8060c33a-48f9-cd49-ab05-8eef8851bd6c" testName="ATMChallenge.Tests.Integration.ApiIntegrationTests.Login_Blocking_AfterFourFailedAttempts" computerName="GUILLEPC" duration="00:00:01.0418327" startTime="2026-02-02T21:02:05.0228649-03:00" endTime="2026-02-02T21:02:05.0228651-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dac79710-8dac-4cda-9673-abfa28ebfc2d" />
+    <UnitTestResult executionId="35ae3391-06b9-44d8-8b2b-988a62c1cd4c" testId="e0527d38-747b-429c-20b3-49bafe7f55f0" testName="ATMChallenge.Tests.WithdrawHandlerTests.Withdraw_WithInsufficientFunds_Fails" computerName="GUILLEPC" duration="00:00:00.9440767" startTime="2026-02-02T21:02:04.9268667-03:00" endTime="2026-02-02T21:02:04.9268668-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35ae3391-06b9-44d8-8b2b-988a62c1cd4c" />
+    <UnitTestResult executionId="40553ac8-03df-411a-af82-f979663e2845" testId="4a34f920-dff0-7357-9bde-882d3ae6c3ac" testName="ATMChallenge.Tests.WithdrawHandlerTests.Withdraw_WithSufficientFunds_Succeeds" computerName="GUILLEPC" duration="00:00:00.0200616" startTime="2026-02-02T21:02:04.9442094-03:00" endTime="2026-02-02T21:02:04.9442097-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40553ac8-03df-411a-af82-f979663e2845" />
+    <UnitTestResult executionId="738aeac5-8eb4-4c3f-8b32-6616990869ac" testId="58adb0cf-5ae1-6b2b-b227-ddacb8c805c8" testName="ATMChallenge.Tests.LoginHandlerTests.Login_WithInvalidPin_IncrementsFailedAttemptsAndBlocksAfterFour" computerName="GUILLEPC" duration="00:00:00.6492983" startTime="2026-02-02T21:02:05.7297470-03:00" endTime="2026-02-02T21:02:05.7297474-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="738aeac5-8eb4-4c3f-8b32-6616990869ac" />
+    <UnitTestResult executionId="711720c8-3c67-4aca-ad33-f392318880ad" testId="fad4b228-dc1b-534c-73f0-2ab145a18599" testName="ATMChallenge.Tests.Integration.ApiIntegrationTests.Operations_InvalidPage_ReturnsBadRequest" computerName="GUILLEPC" duration="00:00:00.1531565" startTime="2026-02-02T21:02:05.3662318-03:00" endTime="2026-02-02T21:02:05.3662319-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="711720c8-3c67-4aca-ad33-f392318880ad">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).</Message>
+          <StackTrace>   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+   at ATMChallenge.Tests.Integration.ApiIntegrationTests.Operations_InvalidPage_ReturnsBadRequest() in C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs:line 201&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="40392f03-f4a2-4c62-a8d7-a68196004948" testId="8adc4d5f-486d-cf67-3ec1-2c0de6f95cc2" testName="ATMChallenge.Tests.AuthHandlerTests.Login_WithValidPin_ReturnsToken" computerName="GUILLEPC" duration="00:00:01.0962388" startTime="2026-02-02T21:02:05.0761841-03:00" endTime="2026-02-02T21:02:05.0761845-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40392f03-f4a2-4c62-a8d7-a68196004948" />
+    <UnitTestResult executionId="c93408f0-eec5-4d7f-8019-f3ce734ca23a" testId="5a145347-6bd8-2df1-3e31-4360fbb068ca" testName="ATMChallenge.Tests.GetBalanceHandlerTests.GetBalance_ReturnsCorrectInfo" computerName="GUILLEPC" duration="00:00:00.9408232" startTime="2026-02-02T21:02:04.9233216-03:00" endTime="2026-02-02T21:02:04.9233404-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c93408f0-eec5-4d7f-8019-f3ce734ca23a" />
+    <UnitTestResult executionId="094671ab-179f-4eee-9436-e28918c05f89" testId="39eee7a8-6a28-c392-5fc6-22d9f1dd4168" testName="ATMChallenge.Tests.Integration.ApiIntegrationTests.FullFlow_LoginAndUseEndpoints" computerName="GUILLEPC" duration="00:00:00.1668586" startTime="2026-02-02T21:02:05.5336874-03:00" endTime="2026-02-02T21:02:05.5336875-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="094671ab-179f-4eee-9436-e28918c05f89">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).</Message>
+          <StackTrace>   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+   at ATMChallenge.Tests.Integration.ApiIntegrationTests.FullFlow_LoginAndUseEndpoints() in C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs:line 127&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5a09ddd9-78a5-458b-89e5-9e65b06da4a3" testId="6d6cbddf-b775-dca0-a51a-088b1f40fa45" testName="ATMChallenge.Tests.Integration.ApiIntegrationTests.Withdraw_NegativeAmount_ReturnsBadRequest" computerName="GUILLEPC" duration="00:00:00.1736067" startTime="2026-02-02T21:02:05.2165826-03:00" endTime="2026-02-02T21:02:05.2165828-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a09ddd9-78a5-458b-89e5-9e65b06da4a3">
+      <Output>
+        <ErrorInfo>
+          <Message>System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).</Message>
+          <StackTrace>   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+   at ATMChallenge.Tests.Integration.ApiIntegrationTests.Withdraw_NegativeAmount_ReturnsBadRequest() in C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs:line 231&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b48477ce-7ea9-4d04-8b02-cd9086fb5d9f" testId="a40c5a37-2999-be0d-51cf-72b1b9314cbe" testName="ATMChallenge.Tests.GetOperationsHandlerTests.GetOperations_ReturnsPaginatedItems" computerName="GUILLEPC" duration="00:00:00.9418832" startTime="2026-02-02T21:02:04.9252615-03:00" endTime="2026-02-02T21:02:04.9252616-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b48477ce-7ea9-4d04-8b02-cd9086fb5d9f" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ATMChallenge.Tests.AuthHandlerTests.Login_WithValidPin_ReturnsToken" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="8adc4d5f-486d-cf67-3ec1-2c0de6f95cc2">
+      <Execution id="40392f03-f4a2-4c62-a8d7-a68196004948" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.AuthHandlerTests" name="Login_WithValidPin_ReturnsToken" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.WithdrawHandlerTests.Withdraw_WithInsufficientFunds_Fails" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="e0527d38-747b-429c-20b3-49bafe7f55f0">
+      <Execution id="35ae3391-06b9-44d8-8b2b-988a62c1cd4c" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.WithdrawHandlerTests" name="Withdraw_WithInsufficientFunds_Fails" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.WithdrawHandlerTests.Withdraw_WithSufficientFunds_Succeeds" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="4a34f920-dff0-7357-9bde-882d3ae6c3ac">
+      <Execution id="40553ac8-03df-411a-af82-f979663e2845" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.WithdrawHandlerTests" name="Withdraw_WithSufficientFunds_Succeeds" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.Integration.ApiIntegrationTests.Operations_InvalidPage_ReturnsBadRequest" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="fad4b228-dc1b-534c-73f0-2ab145a18599">
+      <Execution id="711720c8-3c67-4aca-ad33-f392318880ad" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.Integration.ApiIntegrationTests" name="Operations_InvalidPage_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.GetBalanceHandlerTests.GetBalance_ReturnsCorrectInfo" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="5a145347-6bd8-2df1-3e31-4360fbb068ca">
+      <Execution id="c93408f0-eec5-4d7f-8019-f3ce734ca23a" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.GetBalanceHandlerTests" name="GetBalance_ReturnsCorrectInfo" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.Integration.ApiIntegrationTests.Withdraw_NegativeAmount_ReturnsBadRequest" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="6d6cbddf-b775-dca0-a51a-088b1f40fa45">
+      <Execution id="5a09ddd9-78a5-458b-89e5-9e65b06da4a3" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.Integration.ApiIntegrationTests" name="Withdraw_NegativeAmount_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.GetOperationsHandlerTests.GetOperations_ReturnsPaginatedItems" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="a40c5a37-2999-be0d-51cf-72b1b9314cbe">
+      <Execution id="b48477ce-7ea9-4d04-8b02-cd9086fb5d9f" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.GetOperationsHandlerTests" name="GetOperations_ReturnsPaginatedItems" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.LoginHandlerTests.Login_WithValidPin_ResetsFailedAttemptsAndReturnsToken" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="d12bbbf4-f082-23ff-e3df-61b6bc875131">
+      <Execution id="3420d9d3-87b6-4ba4-a70c-cbf36bbfbd47" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.LoginHandlerTests" name="Login_WithValidPin_ResetsFailedAttemptsAndReturnsToken" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.Integration.ApiIntegrationTests.FullFlow_LoginAndUseEndpoints" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="39eee7a8-6a28-c392-5fc6-22d9f1dd4168">
+      <Execution id="094671ab-179f-4eee-9436-e28918c05f89" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.Integration.ApiIntegrationTests" name="FullFlow_LoginAndUseEndpoints" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.LoginHandlerTests.Login_WithInvalidPin_IncrementsFailedAttemptsAndBlocksAfterFour" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="58adb0cf-5ae1-6b2b-b227-ddacb8c805c8">
+      <Execution id="738aeac5-8eb4-4c3f-8b32-6616990869ac" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.LoginHandlerTests" name="Login_WithInvalidPin_IncrementsFailedAttemptsAndBlocksAfterFour" />
+    </UnitTest>
+    <UnitTest name="ATMChallenge.Tests.Integration.ApiIntegrationTests.Login_Blocking_AfterFourFailedAttempts" storage="c:\users\guille\source\repos\atmchallenge-metafar\atmchallenge.tests\bin\debug\net8.0\atmchallenge.tests.dll" id="8060c33a-48f9-cd49-ab05-8eef8851bd6c">
+      <Execution id="dac79710-8dac-4cda-9673-abfa28ebfc2d" />
+      <TestMethod codeBase="C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\bin\Debug\net8.0\ATMChallenge.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ATMChallenge.Tests.Integration.ApiIntegrationTests" name="Login_Blocking_AfterFourFailedAttempts" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="d12bbbf4-f082-23ff-e3df-61b6bc875131" executionId="3420d9d3-87b6-4ba4-a70c-cbf36bbfbd47" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8060c33a-48f9-cd49-ab05-8eef8851bd6c" executionId="dac79710-8dac-4cda-9673-abfa28ebfc2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0527d38-747b-429c-20b3-49bafe7f55f0" executionId="35ae3391-06b9-44d8-8b2b-988a62c1cd4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a34f920-dff0-7357-9bde-882d3ae6c3ac" executionId="40553ac8-03df-411a-af82-f979663e2845" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="58adb0cf-5ae1-6b2b-b227-ddacb8c805c8" executionId="738aeac5-8eb4-4c3f-8b32-6616990869ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fad4b228-dc1b-534c-73f0-2ab145a18599" executionId="711720c8-3c67-4aca-ad33-f392318880ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8adc4d5f-486d-cf67-3ec1-2c0de6f95cc2" executionId="40392f03-f4a2-4c62-a8d7-a68196004948" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5a145347-6bd8-2df1-3e31-4360fbb068ca" executionId="c93408f0-eec5-4d7f-8019-f3ce734ca23a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="39eee7a8-6a28-c392-5fc6-22d9f1dd4168" executionId="094671ab-179f-4eee-9436-e28918c05f89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6d6cbddf-b775-dca0-a51a-088b1f40fa45" executionId="5a09ddd9-78a5-458b-89e5-9e65b06da4a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a40c5a37-2999-be0d-51cf-72b1b9314cbe" executionId="b48477ce-7ea9-4d04-8b02-cd9086fb5d9f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="11" executed="11" passed="8" failed="3" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 8.0.20)&#xD;
+[xUnit.net 00:00:00.88]   Discovering: ATMChallenge.Tests&#xD;
+[xUnit.net 00:00:00.90]   Discovered:  ATMChallenge.Tests&#xD;
+[xUnit.net 00:00:00.90]   Starting:    ATMChallenge.Tests&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 3 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 2 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 3 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 2 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+[xUnit.net 00:00:02.17]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).&#xD;
+[xUnit.net 00:00:02.17]       Stack Trace:&#xD;
+[xUnit.net 00:00:02.17]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+[xUnit.net 00:00:02.17]         C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs(231,0): at ATMChallenge.Tests.Integration.ApiIntegrationTests.Withdraw_NegativeAmount_ReturnsBadRequest()&#xD;
+[xUnit.net 00:00:02.17]         --- End of stack trace from previous location ---&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 3 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 2 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+[xUnit.net 00:00:02.32]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).&#xD;
+[xUnit.net 00:00:02.32]       Stack Trace:&#xD;
+[xUnit.net 00:00:02.32]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+[xUnit.net 00:00:02.32]         C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs(201,0): at ATMChallenge.Tests.Integration.ApiIntegrationTests.Operations_InvalidPage_ReturnsBadRequest()&#xD;
+[xUnit.net 00:00:02.32]         --- End of stack trace from previous location ---&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 3 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 2 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+[xUnit.net 00:00:02.49]       System.Net.Http.HttpRequestException : Response status code does not indicate success: 401 (Unauthorized).&#xD;
+[xUnit.net 00:00:02.49]       Stack Trace:&#xD;
+[xUnit.net 00:00:02.49]            at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()&#xD;
+[xUnit.net 00:00:02.49]         C:\Users\Guille\source\repos\ATMChallenge-metafar\ATMChallenge.Tests\Integration\ApiIntegrationTests.cs(127,0): at ATMChallenge.Tests.Integration.ApiIntegrationTests.FullFlow_LoginAndUseEndpoints()&#xD;
+[xUnit.net 00:00:02.49]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:02.69]   Finished:    ATMChallenge.Tests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="GUILLEPC" outcome="Error" timestamp="2026-02-02T21:02:05.2147409-03:00">
+        <Text>[xUnit.net 00:00:02.17]     ATMChallenge.Tests.Integration.ApiIntegrationTests.Withdraw_NegativeAmount_ReturnsBadRequest [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="GUILLEPC" outcome="Error" timestamp="2026-02-02T21:02:05.3661948-03:00">
+        <Text>[xUnit.net 00:00:02.32]     ATMChallenge.Tests.Integration.ApiIntegrationTests.Operations_InvalidPage_ReturnsBadRequest [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="GUILLEPC" outcome="Error" timestamp="2026-02-02T21:02:05.5334334-03:00">
+        <Text>[xUnit.net 00:00:02.49]     ATMChallenge.Tests.Integration.ApiIntegrationTests.FullFlow_LoginAndUseEndpoints [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

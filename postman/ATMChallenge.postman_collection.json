@@ -1,0 +1,682 @@
+{
+	"info": {
+		"_postman_id": "atm-challenge-metafar-2026",
+		"name": "ATM Challenge API - Metafar",
+		"description": "Colección completa para probar la API del Challenge ATM.\n\n**Instrucciones:**\n1. Ejecuta primero \"1. Login Exitoso\" para obtener el token JWT\n2. El token se guarda automáticamente en la variable `jwt_token`\n3. Todos los demás endpoints usan automáticamente este token\n\n**Datos de prueba:**\n- Tarjeta: 4000000000000001 | PIN: 1234\n- Tarjeta: 4000000000000002 | PIN: 5678\n- Tarjeta: 4000000000000003 | PIN: 9999\n- Tarjeta: 4000000000000004 | PIN: 1111\n- Tarjeta: 4000000000000005 | PIN: 2222",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Autenticación",
+			"item": [
+				{
+					"name": "1.1 Login Exitoso - Juan Pérez",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"jwt_token\", jsonData.token);",
+									"    pm.test(\"Token guardado correctamente\", function () {",
+									"        pm.expect(jsonData.token).to.be.a('string');",
+									"    });",
+									"} else {",
+									"    pm.test(\"Login exitoso\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"pin\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login con credenciales válidas. El token se guarda automáticamente."
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Login - María García",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"jwt_token\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000002\",\n  \"pin\": \"5678\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Login - Carlos López",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"jwt_token\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000003\",\n  \"pin\": \"9999\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4 Login con PIN Incorrecto (Error)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"pin\": \"0000\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Debe retornar 401 Unauthorized"
+					},
+					"response": []
+				},
+				{
+					"name": "1.5 Login con Tarjeta Inexistente (Error)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"9999999999999999\",\n  \"pin\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Debe retornar 401 Unauthorized"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints de autenticación. Ejecuta primero \"1.1 Login Exitoso\" para obtener el token."
+		},
+		{
+			"name": "2. Consultar Saldo",
+			"item": [
+				{
+					"name": "2.1 Consultar Saldo - Juan Pérez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/account/balance/4000000000000001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"balance",
+								"4000000000000001"
+							]
+						},
+						"description": "Obtiene el saldo, nombre de usuario, número de cuenta y fecha de última extracción."
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Consultar Saldo - María García",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/account/balance/4000000000000002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"balance",
+								"4000000000000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 Consultar Saldo Sin Token (Error)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/account/balance/4000000000000001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"balance",
+								"4000000000000001"
+							]
+						},
+						"description": "Debe retornar 401 Unauthorized"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para consultar saldo de cuenta."
+		},
+		{
+			"name": "3. Realizar Retiros",
+			"item": [
+				{
+					"name": "3.1 Retiro Exitoso - $500",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"amount\": 500.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"withdraw"
+							]
+						},
+						"description": "Realiza un retiro válido y retorna el nuevo saldo."
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Retiro Exitoso - $1000",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"amount\": 1000.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 Retiro con Fondos Insuficientes (Error)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"amount\": 999999.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"withdraw"
+							]
+						},
+						"description": "Debe retornar 400 Bad Request - Fondos insuficientes"
+					},
+					"response": []
+				},
+				{
+					"name": "3.4 Retiro con Monto Negativo (Error)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"amount\": -100.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"withdraw"
+							]
+						},
+						"description": "Debe retornar 400 Bad Request - Validación FluentValidation"
+					},
+					"response": []
+				},
+				{
+					"name": "3.5 Retiro Sin Token (Error)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cardNumber\": \"4000000000000001\",\n  \"amount\": 100.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/withdraw",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"withdraw"
+							]
+						},
+						"description": "Debe retornar 401 Unauthorized"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para realizar retiros de dinero."
+		},
+		{
+			"name": "4. Historial de Operaciones",
+			"item": [
+				{
+					"name": "4.1 Obtener Operaciones - Página 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/operations/4000000000000001?page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"operations",
+								"4000000000000001"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene las primeras 10 operaciones (página 1)."
+					},
+					"response": []
+				},
+				{
+					"name": "4.2 Obtener Operaciones - Página 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/operations/4000000000000001?page=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"operations",
+								"4000000000000001"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Obtiene las operaciones 11-20 (página 2)."
+					},
+					"response": []
+				},
+				{
+					"name": "4.3 Obtener Operaciones - Sin Página (Default 1)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/operations/4000000000000001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"operations",
+								"4000000000000001"
+							]
+						},
+						"description": "Por defecto retorna la página 1."
+					},
+					"response": []
+				},
+				{
+					"name": "4.4 Obtener Operaciones - María García",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/operations/4000000000000002?page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"operations",
+								"4000000000000002"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.5 Obtener Operaciones Sin Token (Error)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/operations/4000000000000001?page=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"operations",
+								"4000000000000001"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Debe retornar 401 Unauthorized"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para obtener el historial paginado de operaciones."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
