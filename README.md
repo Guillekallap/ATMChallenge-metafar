@@ -296,6 +296,9 @@ Las tablas principales son:
 - **Cards**: Tarjetas asociadas a cuentas
 - **Operations**: Historial de operaciones (retiros)
 
+<img width="904" height="619" alt="ATMChallenge-ERD" src="https://github.com/user-attachments/assets/0f0f270a-a85b-4cd1-b316-212d47469d5c" />
+
+
 ## ?? Endpoints de la API
 
 **URL Base**: `http://localhost:5000`
