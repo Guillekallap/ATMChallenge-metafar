@@ -108,20 +108,62 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+// Aplicar migraciones con reintentos (para Docker)
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    if (db.Database.IsRelational())
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    
+    try
     {
-        db.Database.Migrate();
+        var db = services.GetRequiredService<AppDbContext>();
+        
+        logger.LogInformation("Iniciando aplicación de migraciones...");
+        
+        if (db.Database.IsRelational())
+        {
+            // Reintentar hasta 10 veces (100 segundos total)
+            var maxRetries = 10;
+            var retryCount = 0;
+            
+            while (retryCount < maxRetries)
+            {
+                try
+                {
+                    logger.LogInformation("Intento {Retry} de {MaxRetries} para aplicar migraciones...", retryCount + 1, maxRetries);
+                    
+                    db.Database.Migrate();
+                    
+                    logger.LogInformation("? Migraciones aplicadas correctamente.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    retryCount++;
+                    
+                    if (retryCount >= maxRetries)
+                    {
+                        logger.LogError(ex, "? Error fatal al aplicar migraciones después de {Retries} intentos.", maxRetries);
+                        throw;
+                    }
+                    
+                    logger.LogWarning("?? Error al aplicar migraciones (intento {Retry}): {Message}. Reintentando en 10 segundos...", retryCount, ex.Message);
+                    Thread.Sleep(10000); // Esperar 10 segundos antes de reintentar
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "? Error crítico al inicializar la base de datos.");
+        throw;
     }
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Habilitar Swagger en todos los ambientes (Development y Production)
+// En producción real, esto debería estar detrás de autenticación
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Comentar solo para Docker dev, en prod con reverse proxy reactivar
 // app.UseHttpsRedirection();
